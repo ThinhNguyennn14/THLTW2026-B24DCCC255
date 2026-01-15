@@ -15,7 +15,7 @@ const ChucVuPage = () => {
       dataIndex: 'ma',
       width: 80,
       filterType: 'select',
-      filterData: ['M01', 'M02', 'M03'],
+      filterData: ['M01', 'M02', 'M03'], 
       sortable: true,
     },
     {
