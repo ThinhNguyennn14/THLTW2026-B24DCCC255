@@ -13,7 +13,6 @@ const ProductPage = () => {
   const [searchText, setSearchText] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // 1. Dữ liệu mẫu khởi tạo
   const [products, setProducts] = useState<Product[]>([
     { id: 1, name: 'Laptop Dell XPS 13', price: 25000000, quantity: 10 },
     { id: 2, name: 'iPhone 15 Pro Max', price: 30000000, quantity: 15 },
@@ -22,7 +21,6 @@ const ProductPage = () => {
     { id: 5, name: 'MacBook Air M3', price: 28000000, quantity: 8 },
   ]);
 
-  // 2. Chức năng Thêm sản phẩm (có Validation)
   const handleAdd = (values: any) => {
     const newProduct = { ...values, id: Date.now() };
     setProducts([...products, newProduct]);
@@ -31,13 +29,11 @@ const ProductPage = () => {
     message.success('Thêm sản phẩm thành công!');
   };
 
-  // 3. Chức năng Xóa sản phẩm
   const handleDelete = (id: number) => {
     setProducts(products.filter(p => p.id !== id));
     message.success('Đã xóa sản phẩm');
   };
 
-  // 4. Logic Tìm kiếm
   const filteredData = products.filter(p => 
     p.name.toLowerCase().includes(searchText.toLowerCase())
   );
