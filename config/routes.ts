@@ -42,6 +42,12 @@
 		icon: 'OrderedListOutlined',
 		component: './TodoList',
 	},
+	{
+	name: 'Bài tập 1',
+	path: '/bt01',
+	component: './BT01',
+	icon: 'shop', // Bạn có thể chọn icon khác tùy thích
+	},
 
 	// DANH MUC HE THONG
 	// {
