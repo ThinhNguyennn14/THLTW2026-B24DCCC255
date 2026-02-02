@@ -11,7 +11,8 @@ interface Product {
 const ProductPage = () => {
   const [form] = Form.useForm();
   const [searchText, setSearchText] = useState('');
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [editingRecord, setEditingRecord] = useState<Product | null>(null);
 
   const [products, setProducts] = useState<Product[]>([
     { id: 1, name: 'Laptop Dell XPS 13', price: 25000000, quantity: 10 },
@@ -21,12 +22,22 @@ const ProductPage = () => {
     { id: 5, name: 'MacBook Air M3', price: 28000000, quantity: 8 },
   ]);
 
-  const handleAdd = (values: any) => {
-    const newProduct = { ...values, id: Date.now() };
-    setProducts([...products, newProduct]);
-    setIsModalOpen(false);
-    form.resetFields();
-    message.success('Thêm sản phẩm thành công!');
+  const onFinish = (values: any) => {
+    if (editingRecord) {
+      setProducts(products.map(p => p.id === editingRecord.id ? { ...editingRecord, ...values } : p));
+      message.success('Cập nhật sản phẩm thành công!');
+    } else {
+      const newProduct = { ...values, id: Date.now() };
+      setProducts([...products, newProduct]);
+      message.success('Thêm sản phẩm thành công!');
+    }
+    setIsModalVisible(false);
+  };
+
+  const handleEdit = (record: Product) => {
+    setEditingRecord(record);
+    form.setFieldsValue(record);
+    setIsModalVisible(true);
   };
 
   const handleDelete = (id: number) => {
@@ -46,9 +57,14 @@ const ProductPage = () => {
     {
       title: 'Thao tác',
       render: (_: any, record: Product) => (
-        <Popconfirm title="Bạn có chắc muốn xóa?" onConfirm={() => handleDelete(record.id)}>
-          <Button type="link" danger>Xóa</Button>
-        </Popconfirm>
+        <Space>
+          <Button type="link" onClick={() => handleEdit(record)}>
+            Sửa
+          </Button>
+          <Popconfirm title="Bạn có chắc muốn xóa?" onConfirm={() => handleDelete(record.id)}>
+            <Button type="link" danger>Xóa</Button>
+          </Popconfirm>
+        </Space>
       ),
     },
   ];
@@ -63,13 +79,22 @@ const ProductPage = () => {
           onChange={(e) => setSearchText(e.target.value)}
           style={{ width: 300 }}
         />
-        <Button type="primary" onClick={() => setIsModalOpen(true)}>Thêm mới</Button>
+        <Button type="primary" onClick={() => { form.resetFields(); setEditingRecord(null); setIsModalVisible(true); }}>Thêm mới</Button>
       </Space>
 
       <Table dataSource={filteredData} columns={columns} rowKey="id" />
 
-      <Modal title="Thêm sản phẩm mới" visible={isModalOpen} onOk={() => form.submit()} onCancel={() => setIsModalOpen(false)}>
-        <Form form={form} onFinish={handleAdd} layout="vertical">
+      <Modal 
+        title={editingRecord ? 'Sửa sản phẩm' : 'Thêm sản phẩm mới'} 
+        visible={isModalVisible} 
+        onOk={() => form.submit()} 
+        onCancel={() => setIsModalVisible(false)}
+        afterClose={() => {
+          form.resetFields();
+          setEditingRecord(null);
+        }}
+      >
+        <Form form={form} onFinish={onFinish} layout="vertical">
           <Form.Item name="name" label="Tên sản phẩm" rules={[{ required: true, message: 'Vui lòng nhập tên!' }]}>
             <Input />
           </Form.Item>
