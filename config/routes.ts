@@ -1,4 +1,4 @@
-﻿export default [
+﻿﻿export default [
 	{
 		path: '/user',
 		layout: false,
@@ -46,23 +46,24 @@
 	name: 'Bài tập 1',
 	path: '/bt01',
 	component: './BT01',
-	icon: 'shop', // Bạn có thể chọn icon khác tùy thích
+	icon: 'shop', 
 	},
-
-	// DANH MUC HE THONG
-	// {
-	// 	name: 'DanhMuc',
-	// 	path: '/danh-muc',
-	// 	icon: 'copy',
-	// 	routes: [
-	// 		{
-	// 			name: 'ChucVu',
-	// 			path: 'chuc-vu',
-	// 			component: './DanhMuc/ChucVu',
-	// 		},
-	// 	],
-	// },
-
+	{
+	name: 'Thực Hành 1',
+	path: '/th1',
+	routes: [
+		{
+		name: 'Bài 1',
+		path: '/th1/bt1',
+		component: './TH1/BT1',
+		},
+		{
+		name: 'Bài 2',
+		path: '/th1/bt2',
+		component: './TH1/BT2',
+		},
+	],
+	},
 	{
 		path: '/notification',
 		routes: [
