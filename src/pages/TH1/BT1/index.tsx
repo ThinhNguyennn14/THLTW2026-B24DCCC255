@@ -1,20 +1,18 @@
 import React, { useState, ChangeEvent } from 'react';
 import { Layout, Card, Input, Button, Typography, Space, Alert, Statistic } from 'antd';
 import { ReloadOutlined, SendOutlined } from '@ant-design/icons';
- 
+
 const { Title } = Typography;
 const { Content } = Layout;
- 
+
 const GuessNumberGame: React.FC = () => {
-  // --- STATE MANAGEMENT ---
   const [targetNumber, setTargetNumber] = useState(() => Math.floor(Math.random() * 100) + 1);
   const [userInput, setUserInput] = useState<string>('');
   const [message, setMessage] = useState<string>('Hãy đoán một số từ 1 đến 100!');
   const [status, setStatus] = useState<'info' | 'success' | 'warning' | 'error'>('info');
   const [attempts, setAttempts] = useState<number>(10);
   const [isGameOver, setIsGameOver] = useState<boolean>(false);
- 
-  // --- GAME LOGIC ---
+
   const startNewGame = (): void => {
     setTargetNumber(Math.floor(Math.random() * 100) + 1);
     setAttempts(10);
@@ -23,24 +21,24 @@ const GuessNumberGame: React.FC = () => {
     setIsGameOver(false);
     setUserInput('');
   };
- 
+
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setUserInput(e.target.value);
   };
- 
+
   const handleGuess = (): void => {
     if (isGameOver) return;
     const guess = parseInt(userInput);
- 
+
     if (isNaN(guess) || guess < 1 || guess > 100) {
       setMessage('Vui lòng nhập một số hợp lệ trong khoảng 1 - 100.');
       setStatus('warning');
       return;
     }
- 
+
     const remainingAttempts = attempts - 1;
     setAttempts(remainingAttempts);
- 
+
     if (guess === targetNumber) {
       setMessage("Chúc mừng! Bạn đã đoán đúng!");
       setStatus('success');
@@ -52,14 +50,13 @@ const GuessNumberGame: React.FC = () => {
     } else if (guess > targetNumber) {
       setMessage("Bạn đoán quá cao!");
       setStatus('warning');
-    } else { // guess < targetNumber
+    } else {
       setMessage("Bạn đoán quá thấp!");
       setStatus('info');
     }
     setUserInput('');
   };
- 
-  // --- RENDER ---
+
   return (
     <Layout style={{ background: '#fff', padding: 24 }}>
       <Content style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: 'calc(100vh - 112px)' }}>
@@ -74,7 +71,7 @@ const GuessNumberGame: React.FC = () => {
               showIcon
               style={{ textAlign: 'center' }}
             />
- 
+
             <Statistic
               title="Số lượt đoán còn lại"
               value={attempts}
@@ -84,7 +81,7 @@ const GuessNumberGame: React.FC = () => {
                 fontSize: '3rem',
               }}
             />
- 
+
             {!isGameOver ? (
               <Input.Group compact>
                 <Input
@@ -92,7 +89,7 @@ const GuessNumberGame: React.FC = () => {
                   size="large"
                   value={userInput}
                   onChange={handleInputChange}
-                  placeholder="Nhập số bạn đoán"
+                  placeholder="Nhập số"
                   onPressEnter={handleGuess}
                   autoFocus
                   style={{ width: 'calc(100% - 90px)' }}
@@ -125,5 +122,5 @@ const GuessNumberGame: React.FC = () => {
     </Layout>
   );
 };
- 
+
 export default GuessNumberGame;

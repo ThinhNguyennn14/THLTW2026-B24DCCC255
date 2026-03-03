@@ -13,7 +13,6 @@ const { Content } = Layout;
 const { TabPane } = Tabs;
 const { Option } = Select;
 
-
 interface Subject {
   id: string;
   name: string;
@@ -34,7 +33,6 @@ interface Goal {
   target: number;
 }
 
-// --- MODAL FORM ---
 const StudyFormCustom = ({ visible, type, subjects, onCancel, onFinish, form }: any) => {
   return (
     <Modal
@@ -81,11 +79,9 @@ const StudyFormCustom = ({ visible, type, subjects, onCancel, onFinish, form }: 
   );
 };
 
-// --- MAIN APP COMPONENT ---
 const StudyTrackerApp: React.FC = () => {
   const [form] = Form.useForm();
 
-  // --- STATE MANAGEMENT ---
   const [subjects, setSubjects] = useState<Subject[]>(() => JSON.parse(localStorage.getItem('subjects') || '[]'));
   const [sessions, setSessions] = useState<StudySession[]>(() => JSON.parse(localStorage.getItem('studySessions') || '[]'));
   const [goals, setGoals] = useState<Goal[]>(() => JSON.parse(localStorage.getItem('studyGoals') || '[]'));
@@ -94,14 +90,12 @@ const StudyTrackerApp: React.FC = () => {
   const [modalType, setModalType] = useState<'subject' | 'session'>('subject');
   const [filterMonth, setFilterMonth] = useState<dayjs.Dayjs>(dayjs());
 
-  // --- DATA PERSISTENCE ---
   useEffect(() => {
     localStorage.setItem('subjects', JSON.stringify(subjects));
     localStorage.setItem('studySessions', JSON.stringify(sessions));
     localStorage.setItem('studyGoals', JSON.stringify(goals));
   }, [subjects, sessions, goals]);
 
-  // --- HANDLERS ---
   const onFinish = (values: any) => {
     if (modalType === 'subject') {
       setSubjects([...subjects, { id: Date.now().toString(), name: values.name }]);
@@ -125,7 +119,6 @@ const StudyTrackerApp: React.FC = () => {
     }
   };
 
-  // --- DATA COMPUTATION ---
   const stats = useMemo(() => {
     const monthStr = filterMonth.format('YYYY-MM');
     return subjects.map(sub => {
@@ -143,7 +136,6 @@ const StudyTrackerApp: React.FC = () => {
     });
   }, [subjects, sessions, goals, filterMonth]);
 
-  // --- TABLE COLUMNS ---
   const subjectColumns = [
     {
       title: 'STT',
@@ -230,7 +222,6 @@ const StudyTrackerApp: React.FC = () => {
     },
   ];
 
-  // --- RENDER ---
   return (
     <Content style={{ padding: '24px' }}>
       <Card title="Bài 2 : Quản lý học tập">
