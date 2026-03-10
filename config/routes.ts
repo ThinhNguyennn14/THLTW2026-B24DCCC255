@@ -15,9 +15,6 @@
 			},
 		],
 	},
-
-	///////////////////////////////////
-	// DEFAULT MENU
 	{
 		path: '/dashboard',
 		name: 'Dashboard',
@@ -61,6 +58,22 @@
 		name: 'Bài 2',
 		path: '/th1/bt2',
 		component: './TH1/BT2',
+		},
+	],
+	},
+	{
+	name: 'Thực Hành 2',
+	path: '/th2',
+	routes: [
+		{
+		name: 'Bài 1',
+		path: '/th2/bt1',
+		component: './TH2/BT1',
+		},
+		{
+		name: 'Bài 2',
+		path: '/th2/bt2',
+		component: './TH2/BT2',
 		},
 	],
 	},
