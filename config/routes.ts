@@ -1,4 +1,4 @@
-﻿﻿export default [
+﻿﻿﻿﻿export default [
 	{
 		path: '/user',
 		layout: false,
@@ -76,6 +76,11 @@
 		component: './TH2/BT2',
 		},
 	],
+	},
+	{
+	name: 'Thực Hành 3',
+	path: '/th3',
+	component: './TH3',
 	},
 	{
 		path: '/notification',
