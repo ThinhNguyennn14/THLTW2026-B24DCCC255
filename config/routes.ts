@@ -83,6 +83,11 @@
 	component: './TH3',
 	},
 	{
+	name: 'Thực Hành 4',
+	path: '/th4',
+	component: './TH4',
+	},
+	{
 		path: '/notification',
 		routes: [
 			{
