@@ -87,6 +87,10 @@
 	path: '/th4',
 	component: './TH4',
 	},
+	{name: 'Thực Hành 5',
+		path: '/th5',
+		component: './TH5',
+	},
 	{
 		path: '/notification',
 		routes: [
