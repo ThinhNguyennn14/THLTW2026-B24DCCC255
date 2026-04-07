@@ -40,56 +40,10 @@
 		component: './TodoList',
 	},
 	{
-	name: 'Bài tập 1',
-	path: '/bt01',
-	component: './BT01',
-	icon: 'shop', 
-	},
-	{
-	name: 'Thực Hành 1',
-	path: '/th1',
-	routes: [
-		{
-		name: 'Bài 1',
-		path: '/th1/bt1',
-		component: './TH1/BT1',
-		},
-		{
-		name: 'Bài 2',
-		path: '/th1/bt2',
-		component: './TH1/BT2',
-		},
-	],
-	},
-	{
-	name: 'Thực Hành 2',
-	path: '/th2',
-	routes: [
-		{
-		name: 'Bài 1',
-		path: '/th2/bt1',
-		component: './TH2/BT1',
-		},
-		{
-		name: 'Bài 2',
-		path: '/th2/bt2',
-		component: './TH2/BT2',
-		},
-	],
-	},
-	{
-	name: 'Thực Hành 3',
-	path: '/th3',
-	component: './TH3',
-	},
-	{
-	name: 'Thực Hành 4',
-	path: '/th4',
-	component: './TH4',
-	},
-	{name: 'Thực Hành 5',
-		path: '/th5',
-		component: './TH5',
+		path: '/travel-app',
+		name: 'TravelApp',
+		icon: 'GlobalOutlined',
+		component: './Travel',
 	},
 	{
 		path: '/notification',
