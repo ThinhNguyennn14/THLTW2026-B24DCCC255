@@ -21,29 +21,30 @@
 		component: './TrangChu',
 		icon: 'HomeOutlined',
 	},
+	// {
+	// 	path: '/gioi-thieu',
+	// 	name: 'About',
+	// 	component: './TienIch/GioiThieu',
+	// 	hideInMenu: true,
+	// },
+	// {
+	// 	path: '/random-user',
+	// 	name: 'RandomUser',
+	// 	component: './RandomUser',
+	// 	icon: 'ArrowsAltOutlined',
+	// },
+	// {
+	// 	path: '/todo-list',
+	// 	name: 'TodoList',
+	// 	icon: 'OrderedListOutlined',
+	// 	component: './TodoList',
+	// },
 	{
-		path: '/gioi-thieu',
-		name: 'About',
-		component: './TienIch/GioiThieu',
-		hideInMenu: true,
-	},
-	{
-		path: '/random-user',
-		name: 'RandomUser',
-		component: './RandomUser',
-		icon: 'ArrowsAltOutlined',
-	},
-	{
-		path: '/todo-list',
-		name: 'TodoList',
-		icon: 'OrderedListOutlined',
-		component: './TodoList',
-	},
-	{
-		path: '/travel-app',
-		name: 'TravelApp',
-		icon: 'GlobalOutlined',
-		component: './Travel',
+		path: '/quan-ly-khoa-hoc',
+		name: 'Quản Lý Khóa Học',
+		component: './QuanLyKhoaHoc',
+		icon: 'BookOutlined',
+
 	},
 	{
 		path: '/notification',
