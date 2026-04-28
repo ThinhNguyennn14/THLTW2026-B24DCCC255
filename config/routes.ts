@@ -30,18 +30,18 @@
 		component: './TienIch/GioiThieu',
 		hideInMenu: true,
 	},
-	{
-		path: '/random-user',
-		name: 'RandomUser',
-		component: './RandomUser',
-		icon: 'ArrowsAltOutlined',
-	},
-	{
-		path: '/todo-list',
-		name: 'TodoList',
-		icon: 'OrderedListOutlined',
-		component: './TodoList',
-	},
+	// {
+	// 	path: '/random-user',
+	// 	name: 'RandomUser',
+	// 	component: './RandomUser',
+	// 	icon: 'ArrowsAltOutlined',
+	// },
+	// {
+	// 	path: '/todo-list',
+	// 	name: 'TodoList',
+	// 	icon: 'OrderedListOutlined',
+	// 	component: './TodoList',
+	// },
 
 	// DANH MUC HE THONG
 	// {
@@ -56,45 +56,80 @@
 	// 		},
 	// 	],
 	// },
+	// 	{
+	// 	path: '/Home',
+	// 	name: 'Trang chủ',
+	// 	icon: 'HomeOutlined',
+	// 	component: './Blog/TrangChu',
+	// },
+	// {
+	// 	path: '/gioi-thieu',
+	// 	name: 'About',
+	// 	component: './TienIch/GioiThieu',
+	// 	hideInMenu: true,
+	// },
+	// {
+	// 	path: '/post/:slug',
+	// 	name: 'Chi tiết bài viết',
+	// 	component: './Blog/ChiTiet',
+	// 	hideInMenu: true,
+	// },
+
+	// {
+	// 	path: '/about',
+	// 	name: 'Giới thiệu',
+	// 	icon: 'UserOutlined',
+	// 	component: './Blog/AuthorAbout',
+	// },
+	// {
+	// 	path: '/quan-ly-bai-viet',
+	// 	name: 'Quản lý bài viết',
+	// 	icon: 'FileTextOutlined',
+	// 	component: './BlogAdmin/PostManager',
+	// },
+
+	// {
+	// 	path: '/quan-ly-the',
+	// 	name: 'Quản lý thẻ',
+	// 	icon: 'TagsOutlined',
+	// 	component: './BlogAdmin/TagManager',
+	// },
+	{
+	path: '/healthyhub',
+	name: 'Healthy App',
+	icon: 'HeartOutlined',
+	routes: [
 		{
-		path: '/Home',
+		path: '/healthyhub',
+		redirect: '/healthyhub/trang-chu',
+		},
+		{
+		path: '/healthyhub/trang-chu',
 		name: 'Trang chủ',
-		icon: 'HomeOutlined',
-		component: './Blog/TrangChu',
+		component: './HealthyHub/TrangChu',
+		},
+		{
+		path: '/healthyhub/nhat-ky',
+		name: 'Nhật ký tập luyện',
+		component: './HealthyHub/NhatKy',
+		},
+		{
+		path: '/healthyhub/suc-khoe',
+		name: 'Nhật ký chỉ số sức khỏe',
+		component: './HealthyHub/SucKhoe',
+		},
+		{
+		path: '/healthyhub/muc-tieu',
+		name: 'Quản lý mục tiêu',
+		component: './HealthyHub/MucTieu',
+		},
+		{
+		path: '/healthyhub/bai-tap',
+		name: 'Thư viện bài tập',
+		component: './HealthyHub/BaiTap',
+		},
+     ],
 	},
-	{
-		path: '/gioi-thieu',
-		name: 'About',
-		component: './TienIch/GioiThieu',
-		hideInMenu: true,
-	},
-	{
-		path: '/post/:slug',
-		name: 'Chi tiết bài viết',
-		component: './Blog/ChiTiet',
-		hideInMenu: true,
-	},
-
-	{
-		path: '/about',
-		name: 'Giới thiệu',
-		icon: 'UserOutlined',
-		component: './Blog/AuthorAbout',
-	},
-	{
-		path: '/quan-ly-bai-viet',
-		name: 'Quản lý bài viết',
-		icon: 'FileTextOutlined',
-		component: './BlogAdmin/PostManager',
-	},
-
-	{
-		path: '/quan-ly-the',
-		name: 'Quản lý thẻ',
-		icon: 'TagsOutlined',
-		component: './BlogAdmin/TagManager',
-	},
-
 	{
 		path: '/notification',
 		routes: [
