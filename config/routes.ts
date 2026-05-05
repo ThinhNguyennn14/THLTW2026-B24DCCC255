@@ -1,4 +1,4 @@
-﻿﻿export default [
+﻿﻿﻿﻿export default [
 	{
 		path: '/user',
 		layout: false,
@@ -94,42 +94,70 @@
 	// 	icon: 'TagsOutlined',
 	// 	component: './BlogAdmin/TagManager',
 	// },
+	// {
+	// path: '/healthyhub',
+	// name: 'Healthy App',
+	// icon: 'HeartOutlined',
+	// routes: [
+	// 	{
+	// 	path: '/healthyhub',
+	// 	redirect: '/healthyhub/trang-chu',
+	// 	},
+	// 	{
+	// 	path: '/healthyhub/trang-chu',
+	// 	name: 'Trang chủ',
+	// 	component: './HealthyHub/TrangChu',
+	// 	},
+	// 	{
+	// 	path: '/healthyhub/nhat-ky',
+	// 	name: 'Nhật ký tập luyện',
+	// 	component: './HealthyHub/NhatKy',
+	// 	},
+	// 	{
+	// 	path: '/healthyhub/suc-khoe',
+	// 	name: 'Nhật ký chỉ số sức khỏe',
+	// 	component: './HealthyHub/SucKhoe',
+	// 	},
+	// 	{
+	// 	path: '/healthyhub/muc-tieu',
+	// 	name: 'Quản lý mục tiêu',
+	// 	component: './HealthyHub/MucTieu',
+	// 	},
+	// 	{
+	// 	path: '/healthyhub/bai-tap',
+	// 	name: 'Thư viện bài tập',
+	// 	component: './HealthyHub/BaiTap',
+	// 	},
+    //  ],
+	// },
+
 	{
-	path: '/healthyhub',
-	name: 'Healthy App',
-	icon: 'HeartOutlined',
-	routes: [
-		{
-		path: '/healthyhub',
-		redirect: '/healthyhub/trang-chu',
-		},
-		{
-		path: '/healthyhub/trang-chu',
-		name: 'Trang chủ',
-		component: './HealthyHub/TrangChu',
-		},
-		{
-		path: '/healthyhub/nhat-ky',
-		name: 'Nhật ký tập luyện',
-		component: './HealthyHub/NhatKy',
-		},
-		{
-		path: '/healthyhub/suc-khoe',
-		name: 'Nhật ký chỉ số sức khỏe',
-		component: './HealthyHub/SucKhoe',
-		},
-		{
-		path: '/healthyhub/muc-tieu',
-		name: 'Quản lý mục tiêu',
-		component: './HealthyHub/MucTieu',
-		},
-		{
-		path: '/healthyhub/bai-tap',
-		name: 'Thư viện bài tập',
-		component: './HealthyHub/BaiTap',
-		},
-     ],
+		path: '/task-management',
+		name: 'Quản lý công việc',
+		icon: 'ProjectOutlined',
+		routes: [
+			{
+				path: '/task-management',
+				redirect: '/task-management/dashboard',
+			},
+			{
+				path: '/task-management/dashboard',
+				name: 'Dashboard',
+				component: './TaskManagement/Dashboard',
+			},
+			{
+				path: '/task-management/kanban',
+				name: 'Kanban Board',
+				component: './TaskManagement/KanbanBoard',
+			},
+			{
+				path: '/task-management/tasks',
+				name: 'Danh sách công việc',
+				component: './TaskManagement/TaskList',
+			},
+		],
 	},
+
 	{
 		path: '/notification',
 		routes: [
